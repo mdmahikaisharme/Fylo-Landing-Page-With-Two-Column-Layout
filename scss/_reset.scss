@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway";
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url("./font/Raleway-Regular.ttf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url("./font/Raleway-Bold.ttf");
+    font-style: normal;
+    font-weight: 700;
+}

@@ -1,0 +1,534 @@
+@import "./variable";
+@import "./reset";
+@import "./mixin";
+
+.hold {
+    width: 90%;
+    margin: 0 auto;
+    padding: 3rem 0;
+
+    @include mobile() {
+        padding: 2rem 0;
+    }
+}
+
+.form {
+    $h: 2.5rem;
+    $p: 0 1rem;
+    max-width: 45ch;
+    display: flex;
+    align-items: flex-start;
+
+    &Field {
+        flex: 1;
+
+        input {
+            width: 100%;
+            height: $h;
+            padding: $p;
+        }
+    }
+
+    &HelpX {
+        margin-top: 0.5em;
+        font-size: 0.75rem;
+        display: none;
+        opacity: 0;
+        color: #f00;
+    }
+
+    button {
+        width: 40%;
+        min-width: fit-content;
+        height: $h;
+        margin-left: 1rem;
+        font-weight: 700;
+        padding: $p;
+        background-color: $brightBlue;
+        border: 1px solid $brightBlue;
+        color: $lightGrayishBlue;
+    }
+
+    @include subMedium() {
+        width: 100%;
+        flex-direction: column;
+
+        &Field {
+            width: 100%;
+        }
+        button {
+            width: 100%;
+            margin: 0;
+            margin-top: 1rem;
+        }
+    }
+}
+
+.header {
+    .hold {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &Logo {
+        height: 2.5rem;
+        object-fit: contain;
+    }
+
+    &Nav {
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
+
+    &Link {
+        padding: 0.5em 1em;
+        font-weight: 700;
+        display: block;
+        text-decoration: none;
+        color: $desaturatedBlue;
+        font-size: 0.9rem;
+    }
+
+    @include medium() {
+        &Logo {
+            height: 2rem;
+        }
+        &Link {
+            padding: 0.25em 0.5em;
+        }
+    }
+
+    @include mobile() {
+        &Logo {
+            height: 1.5rem;
+        }
+        &Link {
+            padding: 0.25em 0.5em;
+            font-size: 0.8rem;
+        }
+    }
+}
+
+.hero {
+    .hold {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &Left {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &Txt {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            max-width: 25ch;
+            font-size: 2.25rem;
+            line-height: 1.5em;
+            color: $veryDarkBlue;
+        }
+
+        p {
+            max-width: 52ch;
+            margin: 1rem 0;
+            font-weight: 500;
+            line-height: 1.5em;
+            color: $desaturatedBlue;
+        }
+    }
+
+    &Img {
+        width: 50%;
+    }
+
+    @include medium() {
+        &Txt {
+            h1 {
+                font-size: 1.75rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+        }
+        &Img {
+            width: 40%;
+        }
+    }
+
+    @include subMedium() {
+        .hold {
+            flex-direction: column;
+        }
+        &Left {
+            width: 100%;
+            margin-top: 2rem;
+            align-items: center;
+            order: 2;
+        }
+
+        &Txt {
+            align-items: center;
+            text-align: center;
+        }
+        &Img {
+            width: 100%;
+            order: 1;
+        }
+    }
+
+    @include mobile() {
+        &Txt {
+            h1 {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: 0.85rem;
+            }
+        }
+    }
+}
+
+.feature {
+    background-image: url("../images/bg-curve-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+
+    .hold {
+        margin-top: 3rem;
+        padding: 6rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &Left {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &Txt {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            font-size: 2.25rem;
+            line-height: 1.5em;
+            color: $veryDarkBlue;
+        }
+
+        p {
+            max-width: 55ch;
+            margin: 1rem 0;
+            font-weight: 500;
+            line-height: 1.5em;
+            color: $desaturatedBlue;
+        }
+
+        a {
+            width: fit-content;
+            padding: 0.2em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            color: $moderateCyan;
+            border-bottom: 1px solid $moderateCyan;
+
+            img {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+
+    &Card {
+        max-width: 37.5ch;
+        margin-top: 2.5rem;
+        padding: 1.5rem 2rem;
+        box-shadow: 0px 0px 20px rgba($veryDarkBlue, 0.1);
+        border-radius: 5px;
+
+        & > p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            line-height: 1.75em;
+            color: $desaturatedBlue;
+        }
+
+        &User {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+            }
+        }
+
+        &Info {
+            margin-left: 0.5rem;
+
+            h3 {
+                font-size: 0.8rem;
+            }
+            p {
+                line-height: 1.75em;
+                font-size: 0.7rem;
+            }
+        }
+    }
+
+    &Img {
+        width: 40%;
+    }
+
+    @include medium() {
+        &Txt {
+            h1 {
+                font-size: 1.75rem;
+            }
+            p,
+            a {
+                font-size: 0.9rem;
+            }
+        }
+        &Img {
+            width: 35%;
+        }
+    }
+
+    @include subMedium() {
+        .hold {
+            flex-direction: column;
+        }
+        &Left {
+            width: 100%;
+            margin-top: 2rem;
+            align-items: center;
+            order: 2;
+        }
+
+        &Txt {
+            align-items: center;
+            text-align: center;
+        }
+        &Img {
+            width: 100%;
+            order: 1;
+        }
+    }
+
+    @include mobile() {
+        &Txt {
+            h1 {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: 0.85rem;
+            }
+        }
+
+        &Card {
+            p {
+                font-size: 0.85rem;
+            }
+        }
+    }
+}
+
+.access {
+    background-color: $desaturatedBlue;
+    color: $lightGrayishBlue;
+
+    .hold {
+        padding: 5rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &Txt {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            font-size: 2rem;
+            line-height: 2em;
+        }
+
+        p {
+            max-width: 50ch;
+            font-size: 0.9rem;
+            line-height: 1.5em;
+        }
+    }
+    .form {
+        width: 40%;
+        flex-direction: column;
+
+        &Field {
+            width: 100%;
+        }
+        button {
+            width: 40%;
+            margin: 0;
+            margin-top: 1rem;
+        }
+    }
+
+    @include medium() {
+        &Txt {
+            h1 {
+                font-size: 1.75rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    @include subMedium() {
+        .hold {
+            flex-direction: column;
+        }
+
+        &Txt {
+            width: 100%;
+            align-items: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .form {
+            width: 100%;
+            margin-top: 2rem;
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+
+    @include mobile() {
+        &Txt {
+            h1 {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: 0.85rem;
+            }
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $veryDarkBlue;
+    color: $lightGrayishBlue;
+
+    .hold {
+        padding: 5rem 0;
+    }
+
+    &Logo {
+        height: 2.5rem;
+        object-fit: contain;
+    }
+
+    &Row {
+        display: grid;
+        grid-template: 1fr / repeat(4, 1fr);
+        grid-gap: 1rem;
+    }
+
+    &Item {
+        margin: 1rem 0;
+        display: flex;
+        align-items: center;
+
+        img {
+            margin-right: 1rem;
+        }
+    }
+
+    &Links {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            margin: 0.5rem 0;
+            display: block;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+    &Medias {
+        display: flex;
+
+        a {
+            width: 2rem;
+            height: 2rem;
+            margin: 0 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $lightGrayishBlue;
+            color: inherit;
+            border-radius: 50px;
+
+            &:hover {
+                border-color: $brightBlue;
+                color: $brightBlue;
+            }
+        }
+    }
+
+    @include medium() {
+        &Logo {
+            height: 2rem;
+        }
+
+        &Row {
+            grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        }
+    }
+
+    @include subMedium() {
+        &Row {
+            grid-template: repeat(4, auto) / 1fr;
+        }
+
+        &Medias {
+            justify-content: center;
+        }
+    }
+
+    @include mobile() {
+        font-size: 0.8rem;
+        a {
+            font-size: 0.8rem;
+        }
+
+        &Logo {
+            height: 1.5rem;
+        }
+    }
+}
